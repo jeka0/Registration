@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WelcomePage</title>
+        <link rel ="stylesheet" type="text/css" href="style2.css">
+        <script>
+    function take()
+    {
+        document.getElementById("Name").innerText = sessionStorage.getItem('Name') + " "
+        document.getElementById("Surname").innerText = sessionStorage.getItem('Surname')
+        calculateDate()
+    }
+    function calculateDate()
+    {
+        var date = new Date(sessionStorage.getItem('DateOfBirth'));
+        var nowdate = new Date();
+        date.setFullYear(nowdate.getFullYear());
+        var oneDay = 1000 * 60 * 60 * 24; 
+ 
+        if(date.getTime()<nowdate.getTime())date.setFullYear(date.getFullYear()+1);
+        var diffInTime = date.getTime() - nowdate.getTime();
+        var diffInDays = Math.round(diffInTime / oneDay); 
+  
+        document.getElementById("DateOfBirth").innerText = diffInDays;
+    }
+    </script>
+    
+    </head>
+    <body onload="take();">
+    
+        <div id="welcome">
+            <label for="inputName" id ="Hello">Здравствуйте&nbsp;</label>
+            <b><label for="inputName" id ="Name"></label>
+            <label for="inputSurname" id ="Surname"></label></b>
+        </div>
+        <div id="amountOfDays">
+            <label for="inputDateOfBirth" id = "Text">Количество дней до вашего дня рождения:&nbsp;</label>
+            <b><label for="inputDateOfBirth" id = "DateOfBirth"></label></b>
+        </div>
+    </body>
+</html>

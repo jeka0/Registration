@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+        <link rel ="stylesheet" type="text/css" href="style.css">
+        <script>
+    function func(){
+        if(document.getElementById("inputpasswordrepeat").value!=document.getElementById("inputpassword").value)
+        document.getElementById("butt").disabled = true;else document.getElementById("butt").disabled = false
+        }
+        function save()
+        {
+            sessionStorage.setItem('Name', document.getElementById("inputname").value);
+            sessionStorage.setItem('Surname', document.getElementById("inputsurname").value);
+            sessionStorage.setItem('DateOfBirth', document.getElementById("inputdateofbirth").value)
+        }
+    </script>
+    </head>
+    <body>
+    <form action="2.html" method=post>
+        <h1>Регистрация</h1>
+        <div class="form-group col-md-6">
+            <label for="inputName">Имя*</label>
+            <input type="inputText" class="form-control" id="inputname"
+            required placeholder="Имя" name="name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputSurname"> Фамилия*</label>
+            <input type="inputText" class="form-control" id="inputsurname"
+            required placeholder=" Фамилия" name="surname">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword">Пароль*</label>
+            <input type="password" class="form-control" id="inputpassword"
+            required placeholder="Пароль" name="password" onkeyup="func();">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword">Повтор пароля*</label>
+            <input type="password" class="form-control" id="inputpasswordrepeat"
+            required placeholder="Повтор пароля" name="password" onkeyup="func();">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Email*</label>
+            <input type="email" class="form-control" id="inputemail"
+            required placeholder="Email" name="email">
+        </div>
+        <div class="form-group col-md-6">
+            <p><label for="inputSex">Пол*:</label></p><br/>
+            <p><label for="inputSex">&nbsp;Мужской</label>
+            <input type="radio" class="radio" id="inputmale"
+            required placeholder="Мужской" name="Sex">
+            <label for="inputSex">&nbsp;Женский</label>
+            <input type="radio" class="radio" id="inputfemale"
+            required placeholder="Женский" name="Sex"></p><br/>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputDateOfBirth">Дата рождения*</label>
+            <input type="date" class="form-control" id="inputdateofbirth"
+            required placeholder="Дата рождения" name="dateofbirth">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAreaOfInterest">Сфера интересов*</label>
+            <textarea type="text" class="form-control" id="inputareaofinterest"
+            required placeholder="Сфера интересов" name="areaofinterest"></textarea>
+        </div>
+        <input type="reset">
+        <input type="submit" id="butt" onclick="save();">
+        </form>
+    </body>
+</html>
